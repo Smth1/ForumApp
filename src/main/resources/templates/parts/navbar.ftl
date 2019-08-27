@@ -20,7 +20,12 @@
                 <a class="nav-link" href="/user">User list</a>
             </li>
             </#if>
-            <#if user??>
+            <#if user?? &&
+            (emailError)?? == false &&
+            captchaError?? == false &&
+            usernameError?? == false &&
+            passwordError?? == false &&
+            password2Error?? == false>
                 <li class="nav-item">
                     <a class="nav-link" href="/user/profile">Profile</a>
                 </li>
