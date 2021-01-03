@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.example.sweater.controller;
 
 import java.util.Map;
@@ -16,7 +11,7 @@ public class ControllerUtils {
     public ControllerUtils() {
     }
 
-    static Map<String, String> getErros(BindingResult bindingResult) {
+    static Map getErros(BindingResult bindingResult) {
         Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap((fieldError) -> {
             return fieldError.getField() + "Error";
         }, DefaultMessageSourceResolvable::getDefaultMessage);

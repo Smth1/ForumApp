@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.example.sweater.service;
 
 import com.example.sweater.domain.Role;
@@ -16,6 +11,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.OffsetTimeSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -58,6 +56,11 @@ public class UserService implements UserDetailsService {
             this.sendMessage(user);
             return true;
         }
+    }
+
+    public void addAdmin(User user) {
+        user.setRoles(Set.of(Role.USER, Role.ADMIN));
+        userRepo.save(user);
     }
 
     private void sendMessage(User user) {

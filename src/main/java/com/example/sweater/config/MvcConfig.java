@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.example.sweater.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +26,7 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(new String[]{"/img/**"}).addResourceLocations(new String[]{"file:///" + this.uploadPath + "/"});
-        registry.addResourceHandler(new String[]{"/static/**"}).addResourceLocations(new String[]{"classpath:/static/"});
+        registry.addResourceHandler("/img/**").addResourceLocations("file://" + this.uploadPath + "/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 }

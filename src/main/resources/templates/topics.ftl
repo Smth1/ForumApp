@@ -6,8 +6,6 @@
         Topics
     </h3>
 
-    <a class="btn btn-primary btn-lg" href="/user" role="button">Learn more</a>
-
     <div>
         <#list topics as topic>
             <div class="jumbotron">
@@ -17,9 +15,6 @@
 
                 <a class="btn btn-primary btn-lg" href="/topics/${topic.id}" role="button">Learn more</a>
             </div>
-
-
-
         <#else>
             No Topics
         </#list>

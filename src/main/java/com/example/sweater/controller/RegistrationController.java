@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.example.sweater.controller;
 
 import com.example.sweater.domain.User;
@@ -26,10 +21,13 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class RegistrationController {
     private static final String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response";
+
     @Autowired
     private UserService userService;
+
     @Autowired
     private RestTemplate restTemplate;
+
     @Value("${recaptcha.secret}")
     private String secret;
 
@@ -45,6 +43,7 @@ public class RegistrationController {
     public String addUser(@RequestParam("password2") String passwordConfirm, @RequestParam("g-recaptcha-response") String recaptchaResponse, @Valid User user, BindingResult bindingResult, Model model) {
         String url = String.format("https://www.google.com/recaptcha/api/siteverify?secret=%s&response", this.secret, recaptchaResponse);
         CaptchaResponseDto response = restTemplate.postForObject(url, Collections.emptyList(), CaptchaResponseDto.class, new Object[0]);
+        System.out.println(response);
         if (!response.isSuccess()) {
             model.addAttribute("captchaError", "Fill captcha");
         }

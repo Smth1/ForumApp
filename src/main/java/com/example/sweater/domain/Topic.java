@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.example.sweater.domain;
 
 import java.util.List;
@@ -17,28 +12,30 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(
-        name = "topic"
-)
+@Table(name = "topic")
 public class Topic {
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    private long id;
+    private Long id;
+
     @Column(
             name = "name"
     )
+
     private String name;
     @Column(
             name = "text"
     )
     private String text;
+
     @ManyToOne
     @JoinColumn(
             name = "forum_id"
     )
     Forum belongsToForum;
+
     @OneToMany(
             mappedBy = "belongsToTopic"
     )

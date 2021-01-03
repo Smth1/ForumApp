@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.example.sweater.controller;
 
 import com.example.sweater.domain.Forum;
@@ -10,11 +5,13 @@ import com.example.sweater.domain.Message;
 import com.example.sweater.domain.User;
 import com.example.sweater.repos.ForumRepo;
 import com.example.sweater.repos.MessageRepo;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,8 +28,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class MainController {
     @Autowired
     private MessageRepo messageRepo;
+
     @Autowired
     private ForumRepo forumRepo;
+
     @Value("${upload.path}")
     private String uploadPath;
 
@@ -82,7 +81,9 @@ public class MainController {
             }
 
             model.addAttribute("message", null);
-            this.messageRepo.save(message);
+            for (int i=0; i < 400; i++) {
+                this.messageRepo.save(message);
+            }
         }
 
         Iterable<Message> messages = this.messageRepo.findAll();

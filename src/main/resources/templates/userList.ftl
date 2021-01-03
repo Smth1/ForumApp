@@ -2,28 +2,28 @@
 
 <@c.page>
     List of users
-    <table>
+    <table class="table">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Password</th>
-            <th></th>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Password</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
         <#list users as user>
             <tr>
-                <td>
+                <td scope="row">
                     ${user.username}
                 </td>
-                <td>
+                <td scope="row">
                     <#list user.roles as role>${role}<#sep>, </#list>
                 </td>
-                <td>
+                <td scope="row">
                     ${user.password}
                 </td>
-                <td>
+                <td scope="row">
                     <a href="/user/${user.id}">
                         edit
                     </a>

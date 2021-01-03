@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package com.example.sweater.domain;
 
 import javax.persistence.Entity;
@@ -21,7 +16,8 @@ public class Message {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    private Integer id;
+    private Long id;
+
     @NotBlank(
             message = "Please fill the message"
     )
@@ -30,11 +26,13 @@ public class Message {
             message = "Message too long (more than 2kb)"
     )
     private String text;
+
     @Length(
             max = 255,
             message = "Tag too long (more than 255)"
     )
     private String tag;
+
     @ManyToOne(
             fetch = FetchType.EAGER
     )
@@ -42,11 +40,13 @@ public class Message {
             name = "user_id"
     )
     private User author;
+
     @ManyToOne
     @JoinColumn(
             name = "topic_id"
     )
     private Topic belongsToTopic;
+
     private String filename;
 
     public String getFilename() {
@@ -85,11 +85,11 @@ public class Message {
         this.author = user;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
