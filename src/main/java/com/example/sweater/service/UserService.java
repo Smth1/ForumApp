@@ -12,8 +12,6 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.OffsetTimeSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -65,7 +63,10 @@ public class UserService implements UserDetailsService {
 
     private void sendMessage(User user) {
         if (!StringUtils.isEmpty(user.getEmail())) {
-            String message = String.format("Hello, %s \nWelcome to Sweater. Please visit next link: http://localhost:8080/activate/%s", user.getUsername(), user.getActivationCode());
+            String message = String.format("Hello, %s \nWelcome to Sweater. " +
+                    "Please visit next link: http://localhost:8080/activate/%s",
+                    user.getUsername(),
+                    user.getActivationCode());
             this.mailSender.send(user.getEmail(), "Activation code", message);
         }
 

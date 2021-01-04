@@ -1,6 +1,5 @@
 package com.example.sweater;
 
-import com.example.sweater.domain.Role;
 import com.example.sweater.domain.User;
 import com.example.sweater.service.UserService;
 import org.springframework.boot.CommandLineRunner;

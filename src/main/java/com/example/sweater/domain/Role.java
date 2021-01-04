@@ -6,7 +6,7 @@ public enum Role implements GrantedAuthority {
     USER,
     ADMIN;
 
-    private Role() {
+    Role() {
     }
 
     public String getAuthority() {

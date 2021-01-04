@@ -9,9 +9,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer.AuthorizedUrl;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
@@ -36,7 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers(new String[]{"/", "/topics/**", "/forums/**", "/registration", "/static/**", "/activate/*", "/img/**"}).permitAll()
+                    .antMatchers("/", "/topics/**", "/forums/**",
+                            "/registration", "/static/**", "/activate/*", "/img/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()

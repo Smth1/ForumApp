@@ -9,6 +9,7 @@
 .idea/**/shelf
 .idea/
 target/
+src/main/resources/uploads
 
 # Generated files
 .idea/**/contentModel.xml

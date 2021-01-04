@@ -61,7 +61,11 @@ public class MainController {
     }
 
     @PostMapping({"/main"})
-    public String add(@AuthenticationPrincipal User user, @Valid Message message, BindingResult bindingResult, Model model, @RequestParam("file") MultipartFile file) throws IOException {
+    public String add(@AuthenticationPrincipal User user,
+                      @Valid Message message,
+                      BindingResult bindingResult,
+                      Model model,
+                      @RequestParam("file") MultipartFile file) throws IOException {
         message.setAuthor(user);
         if (bindingResult.hasErrors()) {
             Map<String, String> errorsMap = ControllerUtils.getErros(bindingResult);

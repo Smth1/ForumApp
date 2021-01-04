@@ -6,10 +6,12 @@ import com.example.sweater.domain.User;
 import com.example.sweater.repos.ForumRepo;
 import com.example.sweater.repos.MessageRepo;
 import com.example.sweater.repos.TopicRepo;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -38,7 +40,12 @@ public class TopicController {
     }
 
     @PostMapping({"{id}"})
-    public String add(@PathVariable("id") Topic topic, @AuthenticationPrincipal User user, @RequestParam String text, @RequestParam String tag, Map<String, Object> model, @RequestParam("file") MultipartFile file) throws IOException {
+    public String add(@PathVariable("id") Topic topic,
+                      @AuthenticationPrincipal User user,
+                      @RequestParam String text,
+                      @RequestParam String tag,
+                      Map<String, Object> model,
+                      @RequestParam("file") MultipartFile file) throws IOException {
         Message message = new Message(text, tag, user);
         message.setBelongsToTopic(topic);
         if (file != null && !file.getOriginalFilename().isEmpty()) {
@@ -60,7 +67,8 @@ public class TopicController {
     }
 
     @GetMapping({"{id}"})
-    public String main(@RequestParam(required = false,defaultValue = "") String filter, @PathVariable("id") Topic topic, Model model) {
+    public String main(@RequestParam(required = false,defaultValue = "") String filter,
+                       @PathVariable("id") Topic topic, Model model) {
         Iterable<Message> messages = this.messageRepo.findMessageByBelongsToTopic(topic);
         model.addAttribute("messages", messages);
         model.addAttribute("topic", topic);

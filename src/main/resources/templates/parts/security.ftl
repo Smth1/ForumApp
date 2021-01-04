@@ -7,13 +7,11 @@
             user = Session.SPRING_SECURITY_CONTEXT.authentication.principal
             name = user.getUsername()
             isAdmin = user.isAdmin()
-            known = true
-        >
+            known = true>
 
     <#else>
         <#assign
             name = ""
             isAdmin = false
-            known = false
-            >
+            known = false>
 </#if>

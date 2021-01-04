@@ -11,10 +11,10 @@ public class ControllerUtils {
     public ControllerUtils() {
     }
 
-    static Map getErros(BindingResult bindingResult) {
+    static Map<String, String> getErros(BindingResult bindingResult) {
         Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap((fieldError) -> {
             return fieldError.getField() + "Error";
         }, DefaultMessageSourceResolvable::getDefaultMessage);
-        return (Map)bindingResult.getFieldErrors().stream().collect(collector);
+        return bindingResult.getFieldErrors().stream().collect(collector);
     }
 }

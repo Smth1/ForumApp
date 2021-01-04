@@ -20,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class RegistrationController {
-    private static final String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response";
+    private static final String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&%s";
 
     @Autowired
     private UserService userService;
@@ -40,10 +40,18 @@ public class RegistrationController {
     }
 
     @PostMapping({"/registration"})
-    public String addUser(@RequestParam("password2") String passwordConfirm, @RequestParam("g-recaptcha-response") String recaptchaResponse, @Valid User user, BindingResult bindingResult, Model model) {
-        String url = String.format("https://www.google.com/recaptcha/api/siteverify?secret=%s&response", this.secret, recaptchaResponse);
-        CaptchaResponseDto response = restTemplate.postForObject(url, Collections.emptyList(), CaptchaResponseDto.class, new Object[0]);
+    public String addUser(@RequestParam("password2") String passwordConfirm,
+                          @RequestParam("g-recaptcha-response") String recaptchaResponse,
+                          @Valid User user, BindingResult bindingResult,
+                          Model model) {
+        String url = String.format(CAPTCHA_URL,
+                this.secret, recaptchaResponse);
+
+        CaptchaResponseDto response = restTemplate
+                .postForObject(url, Collections.emptyList(), CaptchaResponseDto.class);
+
         System.out.println(response);
+        assert response != null;
         if (!response.isSuccess()) {
             model.addAttribute("captchaError", "Fill captcha");
         }
@@ -51,7 +59,8 @@ public class RegistrationController {
         boolean isConfirmEmpty = StringUtils.isEmpty(passwordConfirm);
 
         if (isConfirmEmpty) {
-            model.addAttribute("password2Error", "Password confirmation cannot be empty");
+            model.addAttribute("password2Error",
+                    "Password confirmation cannot be empty");
         }
 
         if (user.getPassword() != null && !user.getPassword().equals(passwordConfirm)) {

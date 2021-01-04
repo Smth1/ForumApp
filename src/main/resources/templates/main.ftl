@@ -3,7 +3,7 @@
 
 <@c.page>
     <div>
-        <h1 align="center">
+        <h1>
             Theme name
         </h1>
     </div>
