@@ -1,4 +1,4 @@
-package com.example.sweater.domain;
+package com.roma.forum.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 

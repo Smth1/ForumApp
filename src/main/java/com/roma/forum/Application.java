@@ -1,7 +1,7 @@
-package com.example.sweater;
+package com.roma.forum;
 
-import com.example.sweater.domain.User;
-import com.example.sweater.service.UserService;
+import com.roma.forum.domain.User;
+import com.roma.forum.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

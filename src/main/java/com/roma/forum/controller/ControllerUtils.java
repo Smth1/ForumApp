@@ -1,4 +1,4 @@
-package com.example.sweater.controller;
+package com.roma.forum.controller;
 
 import java.util.Map;
 import java.util.stream.Collector;

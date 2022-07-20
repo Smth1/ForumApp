@@ -1,8 +1,8 @@
-package com.example.sweater.service;
+package com.roma.forum.service;
 
-import com.example.sweater.domain.Role;
-import com.example.sweater.domain.User;
-import com.example.sweater.repos.UserRepo;
+import com.roma.forum.domain.Role;
+import com.roma.forum.domain.User;
+import com.roma.forum.repos.UserRepo;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;

@@ -1,10 +1,10 @@
-package com.example.sweater.controller;
+package com.roma.forum.controller;
 
-import com.example.sweater.domain.Forum;
-import com.example.sweater.domain.Message;
-import com.example.sweater.domain.User;
-import com.example.sweater.repos.ForumRepo;
-import com.example.sweater.repos.MessageRepo;
+import com.roma.forum.domain.Forum;
+import com.roma.forum.domain.Message;
+import com.roma.forum.domain.User;
+import com.roma.forum.repos.ForumRepo;
+import com.roma.forum.repos.MessageRepo;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

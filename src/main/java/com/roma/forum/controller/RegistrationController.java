@@ -1,8 +1,8 @@
-package com.example.sweater.controller;
+package com.roma.forum.controller;
 
-import com.example.sweater.domain.User;
-import com.example.sweater.domain.dto.CaptchaResponseDto;
-import com.example.sweater.service.UserService;
+import com.roma.forum.domain.User;
+import com.roma.forum.domain.dto.CaptchaResponseDto;
+import com.roma.forum.service.UserService;
 import java.util.Collections;
 import java.util.Map;
 import javax.validation.Valid;

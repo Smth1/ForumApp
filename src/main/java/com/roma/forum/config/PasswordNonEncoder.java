@@ -1,4 +1,4 @@
-package com.example.sweater.config;
+package com.roma.forum.config;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 

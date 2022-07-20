@@ -1,4 +1,4 @@
-package com.example.sweater.domain;
+package com.roma.forum.domain;
 
 import java.util.Collection;
 import java.util.Set;
@@ -19,9 +19,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-@Table(
-        name = "usr"
-)
+@Table(name = "usr")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(

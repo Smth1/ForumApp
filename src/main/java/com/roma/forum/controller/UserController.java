@@ -1,8 +1,8 @@
-package com.example.sweater.controller;
+package com.roma.forum.controller;
 
-import com.example.sweater.domain.Role;
-import com.example.sweater.domain.User;
-import com.example.sweater.service.UserService;
+import com.roma.forum.domain.Role;
+import com.roma.forum.domain.User;
+import com.roma.forum.service.UserService;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,10 +1,10 @@
-package com.example.sweater.controller;
+package com.roma.forum.controller;
 
-import com.example.sweater.domain.Forum;
-import com.example.sweater.domain.Topic;
-import com.example.sweater.repos.ForumRepo;
-import com.example.sweater.repos.MessageRepo;
-import com.example.sweater.repos.TopicRepo;
+import com.roma.forum.domain.Forum;
+import com.roma.forum.domain.Topic;
+import com.roma.forum.repos.ForumRepo;
+import com.roma.forum.repos.MessageRepo;
+import com.roma.forum.repos.TopicRepo;
 
 import java.util.List;
 

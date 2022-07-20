@@ -1,6 +1,6 @@
-package com.example.sweater.config;
+package com.roma.forum.config;
 
-import com.example.sweater.service.UserService;
+import com.roma.forum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

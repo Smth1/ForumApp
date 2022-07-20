@@ -1,4 +1,4 @@
-package com.example.sweater.domain;
+package com.roma.forum.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

@@ -1,4 +1,4 @@
-package com.example.sweater.config;
+package com.roma.forum.config;
 
 import java.util.Properties;
 import org.springframework.beans.factory.annotation.Value;

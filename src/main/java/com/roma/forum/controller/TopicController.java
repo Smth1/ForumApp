@@ -1,11 +1,11 @@
-package com.example.sweater.controller;
+package com.roma.forum.controller;
 
-import com.example.sweater.domain.Message;
-import com.example.sweater.domain.Topic;
-import com.example.sweater.domain.User;
-import com.example.sweater.repos.ForumRepo;
-import com.example.sweater.repos.MessageRepo;
-import com.example.sweater.repos.TopicRepo;
+import com.roma.forum.domain.Message;
+import com.roma.forum.domain.Topic;
+import com.roma.forum.domain.User;
+import com.roma.forum.repos.ForumRepo;
+import com.roma.forum.repos.MessageRepo;
+import com.roma.forum.repos.TopicRepo;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class TopicController {
     public TopicController() {
     }
 
-    @PostMapping({"{id}"})
+    @PostMapping({"{id}"})// lkj/lkj/weiu/{28973}
     public String add(@PathVariable("id") Topic topic,
                       @AuthenticationPrincipal User user,
                       @RequestParam String text,

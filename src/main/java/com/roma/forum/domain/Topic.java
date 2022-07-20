@@ -1,4 +1,4 @@
-package com.example.sweater.domain;
+package com.roma.forum.domain;
 
 import java.util.List;
 import javax.persistence.Column;
